@@ -243,7 +243,6 @@ fn main() -> std::io::Result<()> {
     env_logger::init();
     log::set_max_level(LevelFilter::Debug);
 
-    info!("tinyproxy-log-parse starts...");
     HttpServer::new(move || {
         App::new().service(web::resource("/").route(web::get().to(index)))
     }).bind("0.0.0.0:8080").unwrap().run()
