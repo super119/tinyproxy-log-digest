@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Tinyproxy Log Parsing</title>
+    <style>
+        table {
+            font-family: "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+            border-collapse: collapse;
+	}
+
+        td.record {
+            border: 1px solid #AAAAAA;
+            font-size: 12px;
+            padding: 10px;
+	}
+    </style>
+</head>
+
+<body>
+    <table width="1024" align="center">
+        <tr>
+            <td align="center">
+                <h1>Tinyproxy Log List</h1>
+            </td>
+        </tr>
+    </table>
+
+    <table width="1024" align="center">
+        {% for rec in records %}
+	<tr>
+            <td class="record">{{ rec.hts }}</td>
+            <td class="record">{{ rec.method }}</td>
+            <td class="record">{{ rec.counts }}</td>
+            <td class="record">
+                <a href="{{ rec.url }}" target="_blank">{{ rec.url_shrink }}</a>
+	    </td>
+	</tr>
+	{% endfor %}
+    </table>
+</body>
+</html>
